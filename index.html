@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>BlackJack</title>
+  <script src="script.js" type="module"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="row" style="height: 50px;">
+      <button id="beginGame" enabled>Begin Game</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row" id="playerRow">
+      <div id="playerHand"></div>
+      <div id="playerTotal"></div>
+      
+    </div>
+
+    <div class="row" id="dealerRow">
+      <div id="dealerHand"></div>
+      <div id="dealerTotal"></div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row" id="bottomButtons">
+      <button id="hit" disabled>Hit</button>
+      <button id="stay" disabled>Stay</button>
+      <button id="doubleBet" disabled>Double Bet?</button>
+    </div>
+  </div>
+
+  <p id="status">Would you like to play a game of Black Jack?</p>
+
+  <div id="playerMoney"></div>
+  <div id="playerBet"></div>
+</body>
+
+</html>

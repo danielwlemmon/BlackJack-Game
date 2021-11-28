@@ -1,0 +1,43 @@
+*, *::after, *::before { 
+  box-sizing: border-box;
+}
+.container {
+  height: 50px;
+  position: relative;
+  
+}
+#beginGame {
+  margin: 0;
+  position: absolute;
+  left: 50%;
+  top: 20px;
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
+
+#playerRow {
+  font-size: larger;
+  position: relative;
+  left: 40%;
+}
+
+#dealerRow{
+  font-size: larger;
+  position: relative;
+  left:40%;
+}
+
+#status {
+  text-align: center;
+  font-size: xx-large;
+  font-weight: bold;
+}
+
+#bottomButtons {
+  margin:0;
+  position:absolute;
+  left: 50%;
+  top: 50px;
+  -ms-transform: translate(-50%,-50%);
+  transform: translate(-50%,-50%);
+}
