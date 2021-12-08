@@ -6,41 +6,84 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>BlackJack</title>
-  <script src="script.js" type="module"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-  <div class="container">
+  <div class="text-container">
     <div class="row" style="height: 50px;">
-      <button id="beginGame" enabled>Begin Game</button>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row" id="playerRow">
-      <div id="playerHand"></div>
       <div id="playerTotal"></div>
-      
-    </div>
-
-    <div class="row" id="dealerRow">
-      <div id="dealerHand"></div>
+      <div id="playerMoney"></div>
+      <div id="playerBet"></div>
+      <button id="beginGame" enabled>Begin Game</button>
       <div id="dealerTotal"></div>
     </div>
   </div>
-  <div class="container">
-    <div class="row" id="bottomButtons">
-      <button id="hit" disabled>Hit</button>
-      <button id="stay" disabled>Stay</button>
-      <button id="doubleBet" disabled>Double Bet?</button>
+
+  <div class="playerCard-grid-container">
+    <div class="playerCard-grid">
+      <div class="playerCard-grid-item">
+        <img id="playerCard1" src="" />
+      </div>
+      <div class="playerCard-grid-item">
+        <img id="playerCard2" src="" />
+      </div>
+      <div class="playerCard-grid-item">
+        <img id="playerCard3" src="" />
+      </div>
+      <div class="playerCard-grid-item">
+        <img id="playerCard4" src="" />
+      </div>
+      <div class="playerCard-grid-item">
+        <img id="playerCard5" src="" />
+      </div>
+      <div class="playerCard-grid-item">
+        <img id="playerCard6" src="" />
+      </div>
+      <div class="playerCard-grid-item">
+        <img id="playerCard7" src="" />
+      </div>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <button id="hit" disabled>Hit</button>
+    <button id="stay" disabled>Stay</button>
+    <button id="doubleBet" disabled>Double Bet?</button>
+  </div>
+
+  <div class='dealerCard-grid-container'>
+    <div class='dealerCard-grid'>
+      <div class='card-grid-item' id="divDealerCard1">
+        <img id="dealerCard1" src=''/>
+      </div>
+      <div class='card-grid-item' id="divDealerCard2">
+        <img id="dealerCard2" src='' />
+      </div>
+      <div class='card-grid-item' id="divDealerCard3">
+        <img id="dealerCard3" src='' />
+      </div>
+      <div class='card-grid-item' id="divDealerCard4">
+        <img id="dealerCard4" src='' />
+      </div>
+      <div class='card-grid-item' id="divDealerCard5">
+        <img id="dealerCard5" src='' />
+      </div>
+      <div class='card-grid-item' id="divDealerCard6">
+        <img id="dealerCard6" src='' />
+      </div>
+      <div class='card-grid-item' id="divDealerCard7">
+        <img id="dealerCard7" src='' />
+      </div>
     </div>
   </div>
 
   <p id="status">Would you like to play a game of Black Jack?</p>
 
-  <div id="playerMoney"></div>
-  <div id="playerBet"></div>
+
+  <script src="script.js" type="module"></script>
 </body>
 
 </html>

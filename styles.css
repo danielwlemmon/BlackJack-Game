@@ -1,43 +1,61 @@
-*, *::after, *::before { 
+* { 
+  margin:0;
+  padding:0;
   box-sizing: border-box;
 }
-.container {
+
+html {
+  background: url(cardImg/back1.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.text-container {
+  display:flex;
+  background-color: silver;
   height: 50px;
-  position: relative;
-  
-}
-#beginGame {
-  margin: 0;
-  position: absolute;
-  left: 50%;
-  top: 20px;
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
+  padding: 20px 0;
+  justify-content: space-around;
 }
 
-#playerRow {
-  font-size: larger;
-  position: relative;
-  left: 40%;
+img {
+  max-width: 100px;
+  max-height: 140px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: -20px;
+  margin-right: -20px;
 }
 
-#dealerRow{
-  font-size: larger;
-  position: relative;
-  left:40%;
+button {
+  display: block;
+  margin:0 auto;
 }
 
-#status {
-  text-align: center;
-  font-size: xx-large;
-  font-weight: bold;
+.playerCard-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
 }
 
-#bottomButtons {
-  margin:0;
-  position:absolute;
-  left: 50%;
-  top: 50px;
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
+.playerCard-grid-item {
+  height: 140px;
+  display: none;
+}
+
+.dealerCard-grid{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
+}
+
+dealerCard-grid-item {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
 }
