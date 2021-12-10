@@ -88,7 +88,7 @@ function calcHand(hand) {
 };
 
 function oneToPlayer() {
-  
+
   //const test = $(`#playerCard ${imageSlot}`).src = `/cardImg/ ${currentCard[0]}.png`;
   //console.log(test)
 
@@ -111,12 +111,12 @@ function oneToPlayer() {
 };
 
 function oneToDealer() {
-  
+
   dealer.hand.push(gameDeck.shift());
   if (dealer.hand.length != 2) {
-  const currentCard = (dealer.hand[(dealer.hand.length - 1)]);
-  const imageSlot = (dealer.hand.length);
-  document.getElementById('dealerCard' + imageSlot).src = "/cardImg/" + (currentCard[0]) + ".png";
+    const currentCard = (dealer.hand[(dealer.hand.length - 1)]);
+    const imageSlot = (dealer.hand.length);
+    document.getElementById('dealerCard' + imageSlot).src = "/cardImg/" + (currentCard[0]) + ".png";
   } else {
     document.getElementById('dealerCard2').src = "/cardImg/cardBack.png";
   };
@@ -196,14 +196,8 @@ function dealerTurn() {
 };
 
 function gameResult() {
-  if (player.cardTotal > 21 || (dealer.cardTotal > player.cardTotal && dealer.cardTotal <= 21)) {
-    document.getElementById("status").innerHTML = ("Dealer wins." + " You Lost $" + player.currentBet);
-    dealer.money += player.currentBet;
-    document.getElementById("playerMoney").innerHTML = "Player balance $" + player.money;
-    document.getElementById("playerBet").innerHTML = "";
-    document.getElementById("result").src = "/cardImg/loser.gif";
-
-  } else if (player.cardTotal <= 21 && dealer.cardTotal > 21 || (dealer.cardTotal < player.cardTotal && player.cardTotal <= 21)) {
+  //player should win if they draw a black jack, or '7 card charlie'.
+  if ((player.cardTotal == 21 && player.hand.length == 2) || (player.cardTotal <= 21 && player.hand.length == 7)) {
     document.getElementById("status").innerHTML = ("You win" + " $" + player.currentBet);
     player.money += (player.currentBet * 2);
     dealer.money -= player.currentBet;
@@ -211,11 +205,32 @@ function gameResult() {
     document.getElementById("playerBet").innerHTML = "";
     document.getElementById("result").src = "/cardImg/kip.gif";
   } else {
-    document.getElementById("status").innerHTML = "tie";
-    player.money += player.currentBet;
-    document.getElementById("playerMoney").innerHTML = "Player balance $" + player.money;
-    document.getElementById("playerBet").innerHTML = "";
-    document.getElementById("result").src = "";
-  }
+
+    //player loses if they bust or have less points than the dealer
+    if (player.cardTotal > 21 || (dealer.cardTotal > player.cardTotal && dealer.cardTotal <= 21)) {
+      document.getElementById("status").innerHTML = ("Dealer wins." + " You Lost $" + player.currentBet);
+      dealer.money += player.currentBet;
+      document.getElementById("playerMoney").innerHTML = "Player balance $" + player.money;
+      document.getElementById("playerBet").innerHTML = "";
+      document.getElementById("result").src = "/cardImg/loser.gif";
+
+      //player wins if they have more points than the dealer without going over 21, Or dealer busts and player doesn't.
+    } else if (player.cardTotal <= 21 && dealer.cardTotal > 21 || (dealer.cardTotal < player.cardTotal && player.cardTotal <= 21)) {
+      document.getElementById("status").innerHTML = ("You win" + " $" + player.currentBet);
+      player.money += (player.currentBet * 2);
+      dealer.money -= player.currentBet;
+      document.getElementById("playerMoney").innerHTML = "Player balance $" + player.money;
+      document.getElementById("playerBet").innerHTML = "";
+      document.getElementById("result").src = "/cardImg/kip.gif";
+
+      //neither player busts and they have the same score.
+    } else {
+      document.getElementById("status").innerHTML = "tie";
+      player.money += player.currentBet;
+      document.getElementById("playerMoney").innerHTML = "Player balance $" + player.money;
+      document.getElementById("playerBet").innerHTML = "";
+      document.getElementById("result").src = "";
+    }
+  };
 };
 
