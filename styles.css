@@ -2,10 +2,12 @@
   margin:0;
   padding:0;
   box-sizing: border-box;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  color: white;
 }
 
 html {
-  background: url(/cardImg/back1.jpg) no-repeat center center fixed;
+  background: url(/cardImg/casinoBack.webp) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -14,24 +16,31 @@ html {
 
 .text-container {
   display:flex;
-  background-color: silver;
+  background-color: #9ba1ba;
   height: 100px;
   padding: 20px 0;
   justify-content: space-around;
+  font-size: 25px;
+  font-weight: bold;
+  align-items: center;
 }
 
 img {
-  max-width: 100px;
-  max-height: 140px;
+  max-width: 130px;
+  max-height: 190px;
   padding-top: 10px;
   padding-bottom: 10px;
-  margin-left: -20px;
-  margin-right: -20px;
+  margin-left: -30px;
+  margin-right: -30px;
 }
 
 button {
   display: block;
   margin:0 auto;
+  border-radius: 8px;
+  padding: 8px 24px;
+  font-size: 20px;
+  color: black;
 }
 
 .playerCard-grid {
@@ -42,7 +51,7 @@ button {
 }
 
 .playerCard-grid-item {
-  height: 140px;
+  height: 190px;
 }
 
 .dealerCard-grid{
@@ -62,4 +71,15 @@ button {
 p {
   display: flex;
   justify-content: center;
+  font-size: 50px;
+}
+
+.resultImage-container {
+  display: flex;
+  justify-content: center;
+  
+}
+
+#resultImage {
+  
 }

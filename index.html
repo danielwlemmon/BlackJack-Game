@@ -7,17 +7,18 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>BlackJack</title>
   <script src="jquery-3.6.0.js"></script>
-  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="styles.css">
+
 </head>
 
 <body>
   <div class="text-container">
-    <div class="row" style="height: 50px;">
+    <div class="row">
       <div id="playerTotal"></div>
       <div id="playerMoney"></div>
       <div id="playerBet"></div>
-      <button id="beginGame" enabled>Begin Game</button>
       <div id="dealerTotal"></div>
     </div>
   </div>
@@ -49,15 +50,16 @@
   </div>
 
   <div class="button-container">
+    <button id="beginGame" enabled>Begin Game</button>
     <button id="hit" disabled>Hit</button>
-    <button id="stay" disabled>Stay</button>
+    <button id="stay" disabled>Stay/See Result</button>
     <button id="doubleBet" disabled>Double Bet?</button>
   </div>
 
   <div class='dealerCard-grid-container'>
     <div class='dealerCard-grid'>
       <div class='card-grid-item' id="divDealerCard1">
-        <img id="dealerCard1" src=''/>
+        <img id="dealerCard1" src='' />
       </div>
       <div class='card-grid-item' id="divDealerCard2">
         <img id="dealerCard2" src='' />
@@ -81,9 +83,10 @@
   </div>
 
   <p id="status">Would you like to play a game of Black Jack?</p>
-
-
-  <script src="script.js" type="module"></script>
+  <div class="resultImage-container">
+    <img id="result" src="" alt="">
+  </div>
+  <script id="resultImage" src="script.js" type="module"></script>
 </body>
 
 </html>

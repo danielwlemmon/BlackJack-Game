@@ -12,8 +12,8 @@ class Player {
     this.cardTotal = cardTotal;
     this.currentBet = currentBet;
     this.money = balance;
-  }
-}
+  };
+};
 
 let player = new Player("player", [], 0, 0, 100);
 let dealer = new Player("dealer", [], 0, 0, 1000);
@@ -26,7 +26,7 @@ function buildDeck() {
     ["s2", 2], ["s3", 3], ["s4", 4], ["s5", 5], ["s6", 6], ["s7", 7], ["s8", 8], ["s9", 9], ["s10", 10], ["sj", 10], ["sq", 10], ["sk", 10], ["sa", 11]
   ];
   return gameDeck;
-}
+};
 
 function shuffleDeck(deck) {
 
@@ -35,13 +35,14 @@ function shuffleDeck(deck) {
     const oldValue = deck[newIndex];
     deck[newIndex] = deck[i];
     deck[i] = oldValue;
-  }
+  };
   return deck;
-}
+};
 
 function resetGame() {
   document.getElementById("beginGame").innerHTML = "Play again?";
   document.getElementById("dealerTotal").innerHTML = "";
+  document.getElementById("result").src = "";
   player.hand = [];
   player.cardTotal = 0;
   dealer.hand = [];
@@ -53,7 +54,7 @@ function resetGame() {
   for (let i = 0; i < 7; i++) {
     document.getElementById('dealerCard' + (i + 1)).src = "";
     document.getElementById('playerCard' + (i + 1)).src = "";
-  }
+  };
 
   //deal initial cards alternating player/dealer.  Make this a function when adding more players.
   oneToPlayer();
@@ -62,7 +63,7 @@ function resetGame() {
   oneToDealer();
   document.getElementById("playerBet").innerHTML = "Your Current Bet: $" + player.currentBet;
   document.getElementById("playerMoney").innerHTML = "Player balance $" + player.money;
-}
+};
 
 function calcHand(hand) {
   let aceCount = 0;
@@ -87,7 +88,7 @@ function calcHand(hand) {
 };
 
 function oneToPlayer() {
-
+  
   //const test = $(`#playerCard ${imageSlot}`).src = `/cardImg/ ${currentCard[0]}.png`;
   //console.log(test)
 
@@ -107,9 +108,10 @@ function oneToPlayer() {
   //allow hit or double bet.
   if (player.cardTotal >= 21) { document.getElementById("hit").disabled = true };
   if (player.hand.length > 2) { document.getElementById("doubleBet").disabled = true };
-}
+};
 
 function oneToDealer() {
+  
   dealer.hand.push(gameDeck.shift());
   if (dealer.hand.length != 2) {
   const currentCard = (dealer.hand[(dealer.hand.length - 1)]);
@@ -126,7 +128,7 @@ function doubleBet() {
   document.getElementById("playerBet").innerHTML = "Your Current Bet: $" + player.currentBet;
   document.getElementById("playerMoney").innerHTML = "Player balance $" + player.money;
   document.getElementById("doubleBet").disabled = true;
-}
+};
 
 function updatePlayerHand() {
   player.cardTotal = calcHand(player.hand);
@@ -136,18 +138,18 @@ function updatePlayerHand() {
   } else {
     document.getElementById("hit").disabled = false;
     document.getElementById("stay").disabled = false;
-  }
-}
+  };
+};
 
 function updateDealerHand() {
   dealer.cardTotal = calcHand(dealer.hand);
   document.getElementById("dealerTotal").innerHTML = "Dealer total: " + dealer.cardTotal;
-}
+};
 
 function beginGame() {
   if (player.money >= 20) {
     document.getElementById("doubleBet").disabled = false;
-  }
+  };
 
   document.getElementById("beginGame").disabled = true;
   resetGame();
@@ -164,7 +166,7 @@ function beginGame() {
 
   var doubleBetQuestion = document.getElementById("doubleBet");
   doubleBetQuestion.addEventListener("click", doubleBet);
-}
+};
 
 function finishGame() {
   document.getElementById("doubleBet").disabled = true;
@@ -179,8 +181,9 @@ function finishGame() {
     document.getElementById("beginGame").disabled = false;
   } else {
     document.getElementById("status").innerHTML = "You have run out of Money.  GAME OVER!!!";
-  }
-}
+    document.getElementById("result").src = "/cardImg/noMoney.gif";
+  };
+};
 
 function dealerTurn() {
   const currentCard = (dealer.hand[(dealer.hand.length - 1)]);
@@ -189,9 +192,8 @@ function dealerTurn() {
   while ((dealer.cardTotal < 17 && player.cardTotal <= 21) && (dealer.cardTotal <= player.cardTotal)) {
     oneToDealer();
     updateDealerHand();
-  }
-
-}
+  };
+};
 
 function gameResult() {
   if (player.cardTotal > 21 || (dealer.cardTotal > player.cardTotal && dealer.cardTotal <= 21)) {
@@ -199,6 +201,7 @@ function gameResult() {
     dealer.money += player.currentBet;
     document.getElementById("playerMoney").innerHTML = "Player balance $" + player.money;
     document.getElementById("playerBet").innerHTML = "";
+    document.getElementById("result").src = "/cardImg/loser.gif";
 
   } else if (player.cardTotal <= 21 && dealer.cardTotal > 21 || (dealer.cardTotal < player.cardTotal && player.cardTotal <= 21)) {
     document.getElementById("status").innerHTML = ("You win" + " $" + player.currentBet);
@@ -206,11 +209,13 @@ function gameResult() {
     dealer.money -= player.currentBet;
     document.getElementById("playerMoney").innerHTML = "Player balance $" + player.money;
     document.getElementById("playerBet").innerHTML = "";
-
+    document.getElementById("result").src = "/cardImg/kip.gif";
   } else {
     document.getElementById("status").innerHTML = "tie";
     player.money += player.currentBet;
     document.getElementById("playerMoney").innerHTML = "Player balance $" + player.money;
     document.getElementById("playerBet").innerHTML = "";
+    document.getElementById("result").src = "";
   }
-}
+};
+
