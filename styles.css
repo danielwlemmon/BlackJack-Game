@@ -5,7 +5,7 @@
 }
 
 html {
-  background: url(cardImg/back1.jpg) no-repeat center center fixed;
+  background: url(/cardImg/back1.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -15,7 +15,7 @@ html {
 .text-container {
   display:flex;
   background-color: silver;
-  height: 50px;
+  height: 100px;
   padding: 20px 0;
   justify-content: space-around;
 }
@@ -43,7 +43,6 @@ button {
 
 .playerCard-grid-item {
   height: 140px;
-  display: none;
 }
 
 .dealerCard-grid{
@@ -53,9 +52,14 @@ button {
   padding-bottom: 10px;
 }
 
-dealerCard-grid-item {
+.dealerCard-grid-item {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
   padding-bottom: 10px;
+}
+
+p {
+  display: flex;
+  justify-content: center;
 }
